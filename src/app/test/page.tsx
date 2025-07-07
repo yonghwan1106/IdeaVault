@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 export default function TestPage() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const hasSupabaseKey = !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
