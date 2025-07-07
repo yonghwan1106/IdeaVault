@@ -41,7 +41,7 @@ test.describe('Authentication Flow', () => {
     const emailInput = page.locator('input[type="email"]');
     
     // Check if validation is triggered
-    const isEmailInvalid = await emailInput.evaluate(el => !el.checkValidity());
+    const isEmailInvalid = await emailInput.evaluate(el => !(el as HTMLInputElement).checkValidity());
     const hasErrorMessages = await errorMessages.count() > 0;
     
     expect(isEmailInvalid || hasErrorMessages).toBeTruthy();
