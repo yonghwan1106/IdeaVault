@@ -211,7 +211,7 @@ function PaymentSuccessContent() {
             </div>
             <p className="text-sm text-blue-700">
               구매하신 아이디어의 모든 파일이 즉시 다운로드 가능합니다. 
-              대시보드의 '내 구매' 섹션에서 확인하세요.
+              대시보드의 &apos;내 구매&apos; 섹션에서 확인하세요.
             </p>
           </div>
 
