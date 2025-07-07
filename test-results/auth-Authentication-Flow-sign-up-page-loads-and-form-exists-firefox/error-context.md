@@ -1,0 +1,47 @@
+# Page snapshot
+
+```yaml
+- heading "IdeaVault" [level=1]
+- paragraph: 검증된 마이크로 SaaS 아이디어와 구현 가이드를 거래하는 B2B 마켓플레이스
+- text: 검증된 아이디어와 시장 조사 데이터 Vibe Coding에 최적화된 구현 가이드 안전한 에스크로 결제 시스템
+- heading "회원가입" [level=2]
+- paragraph:
+  - text: 이미 계정이 있으신가요?
+  - link "로그인":
+    - /url: /signin
+- text: 이름
+- textbox "이름"
+- text: 이메일 주소
+- textbox "이메일 주소"
+- text: 사용자 유형
+- combobox "사용자 유형":
+  - option "구매자 - 아이디어를 구매하고 구현" [selected]
+  - option "판매자 - 검증된 아이디어 판매"
+  - option "둘 다 - 구매와 판매 모두"
+- text: 비밀번호
+- textbox "비밀번호"
+- button:
+  - img
+- text: 비밀번호 확인
+- textbox "비밀번호 확인"
+- button:
+  - img
+- checkbox "이용약관 및 개인정보처리방침에 동의합니다. (필수)"
+- link "이용약관":
+  - /url: "#"
+- text: 및
+- link "개인정보처리방침":
+  - /url: "#"
+- text: 에 동의합니다. (필수)
+- checkbox "마케팅 정보 수신에 동의합니다. (선택)"
+- text: 마케팅 정보 수신에 동의합니다. (선택)
+- button "회원가입"
+- text: 또는
+- button "Google":
+  - img
+  - text: Google
+- button "GitHub":
+  - img
+  - text: GitHub
+- alert
+```

@@ -1,0 +1,16 @@
+{
+  "name": "IdeaVault",
+  "short_name": "IdeaVault",
+  "description": "검증된 마이크로 SaaS 아이디어 거래 마켓플레이스",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

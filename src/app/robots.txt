@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /ideas
+Allow: /ideas/*
+Allow: /signup
+Allow: /signin
+Allow: /about
+Allow: /contact
+Allow: /terms
+Allow: /privacy
+
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+Disallow: /auth
+Disallow: /payment
+
+Sitemap: https://ideavault.com/sitemap.xml
