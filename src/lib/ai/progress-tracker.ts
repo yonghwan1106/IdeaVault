@@ -230,7 +230,7 @@ export class ProgressTracker {
           date: new Date(commit.commit.author?.date || Date.now()),
           additions: commitDetail.stats?.additions || 0,
           deletions: commitDetail.stats?.deletions || 0,
-          changedFiles: commitDetail.files?.map(f => f.filename) || []
+          changedFiles: commitDetail.files?.map((f: any) => f.filename) || []
         });
       }
 

@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { createClient } from '@supabase/supabase-js';
 import cron from 'node-cron';
 

@@ -16,11 +16,13 @@ import {
   Clock,
   AlertTriangle,
   BarChart3,
-  PieChart
+  PieChart,
+  Brain
 } from 'lucide-react'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard'
+import AIDashboard from '@/components/admin/AIDashboard'
 
 interface AdminStats {
   total_users: number
@@ -57,7 +59,7 @@ interface IdeaWithUser {
   }>
 }
 
-type TabType = 'overview' | 'analytics' | 'pending'
+type TabType = 'overview' | 'analytics' | 'ai-dashboard' | 'pending'
 
 export default function AdminDashboard() {
   const { user } = useAuth()
@@ -282,6 +284,19 @@ export default function AdminDashboard() {
                 </div>
               </button>
               <button
+                onClick={() => setActiveTab('ai-dashboard')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                  activeTab === 'ai-dashboard'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <div className="flex items-center">
+                  <Brain className="h-4 w-4 mr-2" />
+                  AI 시스템 대시보드
+                </div>
+              </button>
+              <button
                 onClick={() => setActiveTab('pending')}
                 className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                   activeTab === 'pending'
@@ -453,6 +468,12 @@ export default function AdminDashboard() {
         {activeTab === 'analytics' && (
           <div className="bg-white rounded-lg shadow p-6">
             <AnalyticsDashboard />
+          </div>
+        )}
+
+        {activeTab === 'ai-dashboard' && (
+          <div className="space-y-6">
+            <AIDashboard />
           </div>
         )}
 

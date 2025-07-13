@@ -260,8 +260,8 @@ export class NLPEngine {
     if (language === 'en') {
       // Use Natural library for English sentiment
       const analyzer = new natural.SentimentAnalyzer('English', 
-        natural.PorterStemmer, ['negation']);
-      const tokens = this.tokenizer.tokenize(text);
+        natural.PorterStemmer, 'negation');
+      const tokens = this.tokenizer.tokenize(text) || [];
       const score = analyzer.getSentiment(tokens);
       return Math.max(-1, Math.min(1, score));
     } else {

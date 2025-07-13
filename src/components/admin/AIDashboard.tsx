@@ -436,7 +436,10 @@ export default function AIDashboard({ className }: AIDashboardProps) {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className={`text-sm font-medium ${\n                    trend.growth > 0 ? 'text-green-600' :\n                    trend.growth < 0 ? 'text-red-600' : 'text-gray-600'\n                  }`}>
+                  <div className={`text-sm font-medium ${
+                    trend.growth > 0 ? 'text-green-600' :
+                    trend.growth < 0 ? 'text-red-600' : 'text-gray-600'
+                  }`}>
                     {trend.growth > 0 ? '+' : ''}{trend.growth.toFixed(1)}%
                   </div>
                   <div className="text-xs text-gray-500">성장률</div>

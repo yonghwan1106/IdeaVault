@@ -108,7 +108,7 @@ export class CodeGenerationEngine {
     ] = await Promise.all([
       this.generateFileStructure(request, ideaAnalysis),
       this.generateCodeFiles(request, ideaAnalysis),
-      request.includeDatabase ? this.generateDatabaseSchema(request, ideaAnalysis) : null,
+      request.includeDatabase ? this.generateDatabaseSchema(request, ideaAnalysis) : undefined,
       this.generateAPIEndpoints(request, ideaAnalysis),
       this.generateDeploymentInstructions(request),
       this.generateDependencies(request, ideaAnalysis)
@@ -703,7 +703,7 @@ Return only the code content without markdown formatting.
       return {
         id: data.id,
         fileStructure: data.file_structure,
-        codeFiles: JSON.parse(data.code_content || '[]'),
+        codeFiles: JSON.parse(data.code_content || '{}'),
         databaseSchema: data.database_schema,
         apiEndpoints: [],
         deploymentInstructions: data.deployment_instructions || '',

@@ -148,7 +148,7 @@ export class PredictionEngine {
         default: return 0;
       }
     });
-    const avgTrendScore = trendScores.reduce((a, b) => a + b, 0) / trendScores.length;
+    const avgTrendScore = trendScores.length > 0 ? trendScores.reduce((a: number, b: number) => a + b, 0) / trendScores.length : 0;
     score += avgTrendScore;
 
     // Analyze competition level

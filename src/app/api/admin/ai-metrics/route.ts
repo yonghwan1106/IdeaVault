@@ -65,7 +65,8 @@ async function getPredictionMetrics() {
     // Calculate accuracy based on successful transactions
     // This is a simplified calculation - in production, you'd need more sophisticated metrics
     const successfulPredictions = predictions.filter(p => 
-      p.transactions && p.transactions.status === 'completed'
+      p.transactions && Array.isArray(p.transactions) && 
+      p.transactions.some((t: any) => t.status === 'completed')
     );
     
     const accuracy = predictions.length > 0 
