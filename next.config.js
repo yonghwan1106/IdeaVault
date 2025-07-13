@@ -20,7 +20,15 @@ const nextConfig = {
       "dns": false,
       "child_process": false,
       "tls": false,
+      "webworker-threads": false,
     };
+    
+    // Ignore natural.js server-side modules that cause issues
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'webworker-threads': false,
+    };
+    
     return config;
   },
 }
