@@ -28,7 +28,7 @@
 ## 1. Product Overview
 
 ### 1.1 Product Vision
-Create the world's first marketplace specifically for validated micro SaaS ideas, enabling rapid implementation through vibe coding techniques.
+Create the world's first AI-powered marketplace specifically for validated micro SaaS ideas, featuring intelligent matching algorithms, automated success prediction, and comprehensive development support to transform the startup ecosystem.
 
 ### 1.2 Problem Statement
 - **Idea Creators**: Have validated concepts but lack time/resources for implementation
@@ -36,13 +36,15 @@ Create the world's first marketplace specifically for validated micro SaaS ideas
 - **Entrepreneurs**: Want to start businesses but need faster validation and clearer implementation paths
 
 ### 1.3 Solution
-A B2B marketplace that trades **ideas + validation data + implementation guides** rather than completed products, optimized for the vibe coding development approach.
+An AI-enhanced B2B marketplace that trades **ideas + validation data + implementation guides + success prediction analytics** rather than completed products, featuring automated code generation, real-time market analysis, and intelligent developer-idea matching to maximize startup success rates.
 
 ### 1.4 Key Differentiators
-- Focus on pre-implementation stage (ideas, not products)
-- Vibe coding optimization with AI-friendly prompts
-- Korean market expertise with global scalability
-- Comprehensive validation methodology
+- **AI-Powered Success Prediction**: 75%+ accuracy in predicting idea viability
+- **Automated Development Support**: AI code generation and optimization tools
+- **Real-time Market Intelligence**: Big data analysis for trend prediction
+- **Intelligent Matching**: Advanced algorithms connecting optimal idea-developer pairs
+- **Comprehensive Automation**: End-to-end support from idea to market launch
+- **Korean Market Leadership**: Deep local insights with global expansion capabilities
 
 ---
 
@@ -243,9 +245,48 @@ A B2B marketplace that trades **ideas + validation data + implementation guides*
 - **REQ-NOTIF-003**: Customizable notification preferences
 - **REQ-NOTIF-004**: SMS notifications for critical events (optional)
 
-### 4.6 Content Management
+### 4.6 AI-Enhanced Matching & Analytics System
 
-#### 4.6.1 File Management
+#### 4.6.1 AI Developer-Idea Matching
+- **REQ-AI-001**: GitHub activity analysis for developer skill assessment
+- **REQ-AI-002**: Machine learning algorithm for optimal matching (85% accuracy target)
+- **REQ-AI-003**: Real-time compatibility scoring based on tech stack and experience
+- **REQ-AI-004**: Success probability calculation for each match
+- **REQ-AI-005**: Automated matching notifications and recommendations
+
+#### 4.6.2 Natural Language Processing Engine
+- **REQ-NLP-001**: Automatic idea categorization into 300+ predefined categories
+- **REQ-NLP-002**: Market trend keyword extraction from idea descriptions
+- **REQ-NLP-003**: Similarity detection against existing ideas (duplicate prevention)
+- **REQ-NLP-004**: Sentiment analysis for market reception prediction
+- **REQ-NLP-005**: Automated tagging system for improved searchability
+
+#### 4.6.3 Predictive Analytics System
+- **REQ-PRED-001**: Market timing analysis using external trend data
+- **REQ-PRED-002**: Revenue potential prediction based on historical data
+- **REQ-PRED-003**: Implementation feasibility scoring (technical complexity analysis)
+- **REQ-PRED-004**: Competitive landscape assessment
+- **REQ-PRED-005**: Success probability dashboard with confidence intervals
+
+### 4.7 Automated Development Support
+
+#### 4.7.1 AI Code Generation
+- **REQ-CODEGEN-001**: MVP code structure generation from idea descriptions
+- **REQ-CODEGEN-002**: Database schema auto-design based on business requirements
+- **REQ-CODEGEN-003**: API endpoint generation with OpenAPI documentation
+- **REQ-CODEGEN-004**: UI/UX wireframe generation using Figma API integration
+- **REQ-CODEGEN-005**: Code quality analysis and optimization suggestions
+
+#### 4.7.2 Development Progress Tracking
+- **REQ-TRACK-001**: GitHub integration for commit pattern analysis
+- **REQ-TRACK-002**: Automated progress reporting with milestone tracking
+- **REQ-TRACK-003**: Bottleneck identification and resolution suggestions
+- **REQ-TRACK-004**: Performance optimization recommendations
+- **REQ-TRACK-005**: Real-time mentoring system with contextual guidance
+
+### 4.8 Content Management
+
+#### 4.8.1 File Management
 - **REQ-CM-001**: Support for PDF, DOC, ZIP, PNG, JPG files
 - **REQ-CM-002**: Maximum file size 50MB per upload
 - **REQ-CM-003**: Total storage limit 500MB per idea
@@ -253,7 +294,7 @@ A B2B marketplace that trades **ideas + validation data + implementation guides*
 - **REQ-CM-005**: File compression and optimization
 - **REQ-CM-006**: Backup and redundancy for all files
 
-#### 4.6.2 Content Moderation
+#### 4.8.2 Content Moderation
 - **REQ-MOD-001**: Manual review of all new idea submissions
 - **REQ-MOD-002**: Automated content scanning for inappropriate material
 - **REQ-MOD-003**: Plagiarism detection for idea descriptions
@@ -272,13 +313,19 @@ A B2B marketplace that trades **ideas + validation data + implementation guides*
 - **REQ-PERF-003**: File download initiation <5 seconds
 - **REQ-PERF-004**: Payment processing <10 seconds
 - **REQ-PERF-005**: API response time <500ms
+- **REQ-PERF-006**: AI idea analysis <30 seconds
+- **REQ-PERF-007**: Code generation <5 minutes
+- **REQ-PERF-008**: Market trend analysis in real-time
 
-#### 5.1.2 Scalability
-- **REQ-SCALE-001**: Support 1,000 concurrent users
-- **REQ-SCALE-002**: Handle 10,000 ideas in database
-- **REQ-SCALE-003**: Process 500 transactions per day
-- **REQ-SCALE-004**: Store 100GB of files
+#### 5.1.2 Enhanced Scalability for Deep Tech
+- **REQ-SCALE-001**: Support 10,000 concurrent users
+- **REQ-SCALE-002**: Handle 100,000 ideas in database
+- **REQ-SCALE-003**: Process 1,000 transactions per day
+- **REQ-SCALE-004**: Store 1TB of files and generated code
 - **REQ-SCALE-005**: 99.9% uptime SLA
+- **REQ-SCALE-006**: Handle 1TB daily data processing for analytics
+- **REQ-SCALE-007**: Support 10,000 AI model predictions per day
+- **REQ-SCALE-008**: Real-time data ingestion from 100+ sources
 
 ### 5.2 Usability Requirements
 
@@ -376,7 +423,76 @@ ideas {
 }
 ```
 
-#### 6.1.3 Transaction Data
+#### 6.1.3 AI Success Prediction Data
+```sql
+success_predictions {
+  id: UUID (Primary Key)
+  idea_id: UUID (Foreign Key to ideas)
+  buyer_id: UUID (Foreign Key to users)
+  prediction_score: DECIMAL(5,2) -- 0.00 to 100.00
+  market_timing_score: DECIMAL(5,2)
+  technical_feasibility_score: DECIMAL(5,2)
+  developer_match_score: DECIMAL(5,2)
+  funding_probability_score: DECIMAL(5,2)
+  confidence_interval: DECIMAL(5,2)
+  prediction_factors: JSONB
+  model_version: VARCHAR(20)
+  created_at: TIMESTAMP
+  updated_at: TIMESTAMP
+}
+```
+
+#### 6.1.4 Market Analytics Data
+```sql
+market_analytics {
+  id: UUID (Primary Key)
+  keyword: VARCHAR(255)
+  search_volume: INTEGER
+  trend_direction: ENUM('rising', 'falling', 'stable')
+  market_size_estimate: BIGINT
+  competition_level: ENUM('low', 'medium', 'high')
+  revenue_potential: ENUM('low', 'medium', 'high')
+  data_sources: TEXT[]
+  analysis_date: TIMESTAMP
+  confidence_score: DECIMAL(5,2)
+}
+```
+
+#### 6.1.5 Developer Analytics Data
+```sql
+developer_analytics {
+  id: UUID (Primary Key)
+  user_id: UUID (Foreign Key to users)
+  github_username: VARCHAR(255)
+  skill_scores: JSONB -- {"javascript": 85, "react": 90, ...}
+  project_completion_rate: DECIMAL(5,2)
+  average_project_duration: INTEGER -- in days
+  preferred_tech_stack: TEXT[]
+  success_rate: DECIMAL(5,2)
+  specialization_areas: TEXT[]
+  last_updated: TIMESTAMP
+}
+```
+
+#### 6.1.6 Generated Code Data
+```sql
+generated_code {
+  id: UUID (Primary Key)
+  idea_id: UUID (Foreign Key to ideas)
+  buyer_id: UUID (Foreign Key to users)
+  code_type: ENUM('mvp', 'api', 'ui', 'database')
+  programming_language: VARCHAR(50)
+  framework: VARCHAR(100)
+  code_content: TEXT
+  file_structure: JSONB
+  dependencies: JSONB
+  deployment_instructions: TEXT
+  quality_score: DECIMAL(5,2)
+  generated_at: TIMESTAMP
+}
+```
+
+#### 6.1.7 Transaction Data
 ```sql
 transactions {
   id: UUID (Primary Key)
@@ -394,6 +510,7 @@ transactions {
   refund_requested_at: TIMESTAMP
   refund_reason: TEXT
   buyer_notes: TEXT
+  success_prediction_id: UUID (Foreign Key to success_predictions)
   created_at: TIMESTAMP
   updated_at: TIMESTAMP
 }
@@ -575,16 +692,39 @@ transactions {
 - **REQ-SMS-004**: Opt-in/opt-out management
 - **REQ-SMS-005**: Delivery confirmation tracking
 
-### 9.3 Analytics & Monitoring
+### 9.3 Big Data Analytics Platform Integration
 
-#### 9.3.1 Application Monitoring
+#### 9.3.1 Multi-Channel Data Collection
+- **REQ-DATA-001**: Product Hunt, GitHub, Reddit, HackerNews API integration
+- **REQ-DATA-002**: Korean platform crawling (Naver Trends, Kakao, 공모전 sites)
+- **REQ-DATA-003**: Global trend APIs (Google Trends, Twitter, TechCrunch)
+- **REQ-DATA-004**: Patent Office API integration for IP trend analysis
+- **REQ-DATA-005**: Real-time data ingestion pipeline with 1TB/day capacity
+
+#### 9.3.2 AI-Powered Market Prediction
+- **REQ-MARKET-001**: LSTM/ARIMA models for 3-6 month trend forecasting
+- **REQ-MARKET-002**: Social media sentiment analysis for market reception
+- **REQ-MARKET-003**: Competitor monitoring with automated alerts
+- **REQ-MARKET-004**: Revenue prediction models based on historical data
+- **REQ-MARKET-005**: Real-time market heatmap with sector analysis
+
+#### 9.3.3 Real-Time Analytics Dashboard
+- **REQ-DASH-001**: Interactive market trend visualization
+- **REQ-DASH-002**: Keyword trend monitoring with spike detection
+- **REQ-DASH-003**: Investment pattern analysis and hot sector identification
+- **REQ-DASH-004**: Competitive intelligence dashboard
+- **REQ-DASH-005**: Predictive analytics with confidence intervals
+
+### 9.4 Traditional Analytics & Monitoring
+
+#### 9.4.1 Application Monitoring
 - **REQ-MON-001**: Uptime monitoring with alerts
 - **REQ-MON-002**: Performance metrics tracking
 - **REQ-MON-003**: Error logging and aggregation
 - **REQ-MON-004**: Real-time dashboards for operations
 - **REQ-MON-005**: Automated incident response
 
-#### 9.3.2 Business Analytics
+#### 9.4.2 Business Analytics
 - **REQ-ANALYTICS-001**: User behavior tracking
 - **REQ-ANALYTICS-002**: Conversion funnel analysis
 - **REQ-ANALYTICS-003**: Revenue and transaction reporting
@@ -595,14 +735,16 @@ transactions {
 
 ## 10. Success Metrics
 
-### 10.1 Business Metrics
+### 10.1 Enhanced Business Metrics (Deep Tech Era)
 
 #### 10.1.1 Revenue Metrics
-- **Monthly Recurring Revenue (MRR)**: Target ₩1,500,000 by Month 12
-- **Average Transaction Value**: Target ₩160,000
-- **Commission Revenue**: 12-15% of gross transaction volume
-- **Monthly Transaction Volume**: Target 75 transactions by Month 12
-- **Revenue Growth Rate**: Target 25% month-over-month
+- **Monthly Recurring Revenue (MRR)**: Target ₩4,500,000 by Month 24 (3x increase)
+- **Average Transaction Value**: Target ₩480,000 (Premium AI services)
+- **Commission Revenue**: 15-20% of gross transaction volume
+- **Monthly Transaction Volume**: Target 200 transactions by Month 24
+- **Revenue Growth Rate**: Target 40% month-over-month (AI-driven)
+- **Premium Service Revenue**: ₩500,000-1,000,000 per AI consulting project
+- **Success Prediction Service**: ₩200,000 per detailed analysis report
 
 #### 10.1.2 User Acquisition Metrics
 - **Monthly Active Users (MAU)**: Target 1,000 by Month 12
@@ -620,12 +762,16 @@ transactions {
 - **Feature Adoption Rate**: Target >60% for core features
 - **Search Success Rate**: Target >80% find relevant results
 
-#### 10.2.2 Quality Metrics
-- **Idea Approval Rate**: Target >70% of submissions
-- **Buyer Satisfaction**: Target >4.5/5.0 average rating
-- **Implementation Success Rate**: Target >70% of purchased ideas
-- **Dispute Rate**: Target <2% of transactions
-- **Refund Rate**: Target <5% of transactions
+#### 10.2.2 Enhanced Quality Metrics
+- **Idea Approval Rate**: Target >85% (AI-enhanced screening)
+- **Buyer Satisfaction**: Target >4.7/5.0 average rating
+- **Implementation Success Rate**: Target >85% (AI-matched ideas)
+- **AI Prediction Accuracy**: Target >75% for success predictions
+- **Developer-Idea Match Accuracy**: Target >85%
+- **Market Trend Prediction Accuracy**: Target >80%
+- **Dispute Rate**: Target <1% of transactions
+- **Refund Rate**: Target <3% of transactions
+- **Code Generation Quality Score**: Target >90% usable code
 
 ### 10.3 Technical Metrics
 
@@ -713,23 +859,70 @@ transactions {
 - ✅ SEO drives organic traffic with metadata and structured data
 - ✅ Analytics provide actionable insights with comprehensive dashboard
 
-### 11.4 Phase 4: Scale & Polish (Weeks 7-8) ❌ **NOT STARTED**
-**Priority**: MEDIUM
+### 11.4 Phase 4: Deep Tech AI Foundation (Months 7-9) ❌ **PLANNED**
+**Priority**: CRITICAL for Deep Tech Enhancement
 
-#### Features to Implement
-- [ ] Performance optimization
-- [ ] Advanced security features
-- [ ] Content moderation tools
-- [ ] API rate limiting
-- [x] Comprehensive testing (basic build testing completed)
-- [ ] Production deployment
+#### AI Core Engine Development
+- [ ] **AI Developer-Idea Matching System** (Month 7)
+  - GitHub API integration for skill analysis
+  - Machine learning matching algorithm (85% accuracy target)
+  - Real-time compatibility scoring
+- [ ] **Natural Language Processing Engine** (Month 7-8)
+  - KoBERT-based text analysis for Korean market
+  - 300+ category auto-classification
+  - Similarity detection and duplicate prevention
+- [ ] **Predictive Analytics Platform** (Month 8)
+  - Market timing analysis with external APIs
+  - Revenue potential prediction models
+  - Success probability calculation engine
+
+#### Big Data Infrastructure
+- [ ] **Multi-Channel Data Collection** (Month 7)
+  - Product Hunt, GitHub, Reddit API integration
+  - Korean platform crawling (Naver, Kakao)
+  - Real-time data ingestion pipeline (1TB/day)
+- [ ] **AI Market Analysis** (Month 8-9)
+  - LSTM/ARIMA forecasting models
+  - Social sentiment analysis integration
+  - Competitive intelligence dashboard
+
+#### Automated Development Support
+- [ ] **AI Code Generation Engine** (Month 8-9)
+  - MVP structure auto-generation
+  - Database schema design automation
+  - UI/UX wireframe generation with Figma API
+- [ ] **Development Progress Tracking** (Month 9)
+  - GitHub commit pattern analysis
+  - Automated mentoring system
+  - Performance optimization recommendations
+
+**Investment Requirements**: ₩550,000,000
+- AI Development Team: 2 specialists
+- Big Data Infrastructure: Cloud services and APIs
+- Machine Learning Models: Training and optimization
 
 **Definition of Done**: ❌
-- ❌ Platform handles expected load
-- ❌ Security audit passes
-- ❌ All edge cases are handled
-- ❌ Monitoring and alerting work
-- ❌ Ready for public launch
+- ❌ AI matching achieves 85% accuracy
+- ❌ Real-time data processing handles 1TB/day
+- ❌ Code generation produces functional MVPs
+- ❌ Success prediction accuracy reaches 75%
+- ❌ Market analysis provides actionable insights
+
+### 11.5 Phase 5: Scale & Production (Months 10-12) ❌ **FUTURE**
+**Priority**: HIGH
+
+#### Production Readiness
+- [ ] Performance optimization for AI workloads
+- [ ] Advanced security audit and compliance
+- [ ] AI model monitoring and retraining
+- [ ] Enterprise-grade API rate limiting
+- [ ] Comprehensive load testing
+- [ ] Global deployment infrastructure
+
+**Expected Revenue Impact**: 300% increase
+- Target Annual Revenue: ₩288,000,000
+- Premium AI Services: ₩500,000-1,000,000 per project
+- Enhanced platform commission: 15-20%
 
 ---
 
@@ -751,11 +944,12 @@ transactions {
 4. ✅ **Enhanced Admin Analytics Dashboard** - Interactive charts and business metrics
 5. ✅ **SEO Optimization** - Metadata generation and structured data implementation
 
-### Next Priority Tasks (Phase 4):
-1. **Performance optimization and load testing**
-2. **Advanced security features and audit**
-3. **Content moderation tools enhancement**
-4. **Production deployment and monitoring**
+### Next Priority Tasks (Phase 4 - Deep Tech Enhancement):
+1. **AI Developer-Idea Matching System** - Core differentiation feature
+2. **Natural Language Processing Engine** - Korean market specialization
+3. **Big Data Analytics Platform** - Real-time market intelligence
+4. **AI Code Generation Engine** - Automated development support
+5. **Success Prediction System** - 75% accuracy target for startup viability
 
 ### Key Achievements:
 - ✅ Complete user authentication and profile system
