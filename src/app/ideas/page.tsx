@@ -14,8 +14,8 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import RecommendedIdeas from '@/components/ui/RecommendedIdeas'
-import AdvancedSearch, { AdvancedSearchFilters } from '@/components/ui/AdvancedSearch'
+// import RecommendedIdeas from '@/components/ui/RecommendedIdeas'
+// import AdvancedSearch, { AdvancedSearchFilters } from '@/components/ui/AdvancedSearch'
 import { useAuth } from '@/contexts/AuthContext'
 
 interface Idea {
@@ -112,127 +112,40 @@ export default function IdeasPage() {
   const [ideas, setIdeas] = useState<Idea[]>([])
   const [loading, setLoading] = useState(true)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
-  const [, setCurrentFilters] = useState<AdvancedSearchFilters | null>(null)
+  // const [, setCurrentFilters] = useState<AdvancedSearchFilters | null>(null)
 
   const supabase = createClient()
 
-  const fetchIdeas = useCallback(async (filters?: AdvancedSearchFilters) => {
+  const fetchIdeas = useCallback(async (filters?: any) => {
     setLoading(true)
     try {
-      // First try to get all ideas without strict filtering
-      let query = supabase
+      console.log('🔄 Fetching ideas...')
+      
+      // Simple approach: just try to get ideas, use mock data if any issue
+      const { data: ideas, error } = await supabase
         .from('ideas')
         .select('*')
-      
-      // Only apply status filters if data exists
-      const { data: allIdeas, error: checkError } = await supabase
-        .from('ideas')
-        .select('id')
-        .limit(1)
-
-      if (checkError) {
-        console.error('Database connection error:', checkError)
-        // Use mock data if database fails
-        setIdeas(getMockIdeas())
-        return
-      }
-
-      // If no ideas exist, create some mock data for demonstration
-      if (!allIdeas || allIdeas.length === 0) {
-        console.log('No ideas found in database, using mock data')
-        setIdeas(getMockIdeas())
-        return
-      }
-
-      // Apply normal filtering if data exists
-      query = query.eq('status', 'active')
-
-      if (filters) {
-        // Text search
-        if (filters.query) {
-          query = query.or(`title.ilike.%${filters.query}%,description.ilike.%${filters.query}%`)
-        }
-
-        // Categories
-        if (filters.categories.length > 0) {
-          query = query.in('category', filters.categories)
-        }
-
-        // Package types
-        if (filters.packageTypes.length > 0) {
-          query = query.in('package_type', filters.packageTypes)
-        }
-
-        // Price range
-        if (filters.priceRange[0] > 0 || filters.priceRange[1] < 1000000) {
-          query = query.gte('price', filters.priceRange[0]).lte('price', filters.priceRange[1])
-        }
-
-        // Tech stack - filter ideas that contain any of the selected technologies
-        if (filters.techStack.length > 0) {
-          const techStackFilters = filters.techStack.map(tech => `tech_stack.cs.{${tech}}`).join(',')
-          query = query.or(techStackFilters)
-        }
-
-        // Difficulty range
-        if (filters.difficultyRange[0] > 1 || filters.difficultyRange[1] < 5) {
-          query = query.gte('implementation_difficulty', filters.difficultyRange[0])
-                      .lte('implementation_difficulty', filters.difficultyRange[1])
-        }
-
-        // Revenue models
-        if (filters.revenueModels.length > 0) {
-          const revenueFilters = filters.revenueModels.map(model => `revenue_model.ilike.%${model}%`).join(',')
-          query = query.or(revenueFilters)
-        }
-
-        // Minimum rating
-        if (filters.minRating > 0) {
-          query = query.gte('rating', filters.minRating)
-        }
-
-        // Minimum views
-        if (filters.minViews > 0) {
-          query = query.gte('view_count', filters.minViews)
-        }
-
-        // Verified seller filter - handled separately after getting sellers data
-        // if (filters.isVerified) {
-        //   query = query.eq('users.verified', true)
-        // }
-
-        // Date filter (maxAge in days)
-        if (filters.maxAge < 365) {
-          const cutoffDate = new Date()
-          cutoffDate.setDate(cutoffDate.getDate() - filters.maxAge)
-          query = query.gte('created_at', cutoffDate.toISOString())
-        }
-
-        // Sorting
-        const isAscending = filters.sortOrder === 'asc'
-        query = query.order(filters.sortBy, { ascending: isAscending })
-      } else {
-        // Default sorting
-        query = query.order('created_at', { ascending: false })
-      }
-
-      const { data: ideasData, error } = await query
+        .eq('status', 'active')
+        .order('created_at', { ascending: false })
+        .limit(20)
 
       if (error) {
-        console.error('Error fetching ideas:', error)
-        // Fallback to mock data on error
+        console.error('Database error:', error)
+        console.log('📦 Using mock data instead')
         setIdeas(getMockIdeas())
         return
       }
 
-      if (!ideasData || ideasData.length === 0) {
-        console.log('No ideas match filters, showing mock data')
+      if (!ideas || ideas.length === 0) {
+        console.log('📦 No ideas in database, using mock data')
         setIdeas(getMockIdeas())
         return
       }
 
+      console.log('✅ Found ideas:', ideas.length)
+      
       // Transform the data with dummy seller info for now
-      const transformedData = ideasData.map((idea: any) => ({
+      const transformedData = ideas.map((idea: any) => ({
         ...idea,
         seller: {
           full_name: 'Test Seller',
@@ -255,10 +168,10 @@ export default function IdeasPage() {
     fetchIdeas()
   }, [fetchIdeas])
 
-  const handleAdvancedSearch = (filters: AdvancedSearchFilters) => {
-    setCurrentFilters(filters)
-    fetchIdeas(filters)
-  }
+  // const handleAdvancedSearch = (filters: AdvancedSearchFilters) => {
+  //   setCurrentFilters(filters)
+  //   fetchIdeas(filters)
+  // }
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('ko-KR', {
@@ -544,7 +457,7 @@ export default function IdeasPage() {
             </p>
             <button
               onClick={() => {
-                setCurrentFilters(null)
+                // setCurrentFilters(null)
                 fetchIdeas()
               }}
               className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
