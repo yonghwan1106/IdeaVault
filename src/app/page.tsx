@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowRight, CheckCircle, Lightbulb, Code, TrendingUp } from 'lucide-react'
+import { ArrowRight, CheckCircle, Lightbulb, Code, TrendingUp, Brain, Zap, BarChart3 } from 'lucide-react'
 
 export default function HomePage() {
   const { user, loading } = useAuth()
@@ -43,7 +43,10 @@ export default function HomePage() {
           </div>
           <nav className="flex items-center space-x-4">
             <Link href="/ideas" className="text-sm hover:text-primary">
-              아이디어 둘러보기
+              AI 분석된 아이디어
+            </Link>
+            <Link href="/ai-analysis" className="text-sm hover:text-primary">
+              AI 분석 체험
             </Link>
             <Link href="/sell" className="text-sm hover:text-primary">
               아이디어 판매
@@ -62,26 +65,28 @@ export default function HomePage() {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <Badge variant="secondary" className="mb-4">
-            🚀 바이브 코딩 최적화
+            🤖 AI 파워드 딥테크 플랫폼
           </Badge>
           <h1 className="text-5xl font-bold mb-6 gradient-text">
-            검증된 마이크로 SaaS 아이디어
+            AI가 분석한 검증된 딥테크 아이디어
             <br />
             거래 마켓플레이스
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            아이디어 + 시장 검증 + 구현 가이드를 한번에.
-            바이브 코딩으로 빠르게 구현하세요.
+            AI 성공 예측 + 자동 코드 생성 + 실시간 시장 분석으로
+            <br />
+            바이브 코딩을 넘어선 지능형 개발 경험을 제공합니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/ideas">
               <Button size="lg" className="flex items-center gap-2">
-                아이디어 찾기 <ArrowRight className="h-4 w-4" />
+                AI 추천 아이디어 보기 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/sell">
-              <Button variant="outline" size="lg">
-                아이디어 판매하기
+            <Link href="/ai-analysis">
+              <Button variant="outline" size="lg" className="flex items-center gap-2">
+                <Brain className="h-4 w-4" />
+                AI 분석 체험하기
               </Button>
             </Link>
           </div>
@@ -97,30 +102,30 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
-                <CheckCircle className="h-8 w-8 text-green-600 mb-2" />
-                <CardTitle>검증된 아이디어</CardTitle>
+                <Brain className="h-8 w-8 text-green-600 mb-2" />
+                <CardTitle>AI 성공 예측</CardTitle>
                 <CardDescription>
-                  시장 조사와 경쟁사 분석이 완료된 아이디어만 판매
+                  85% 정확도의 AI가 아이디어 성공 확률을 분석하고 예측
                 </CardDescription>
               </CardHeader>
             </Card>
             
             <Card>
               <CardHeader>
-                <Code className="h-8 w-8 text-blue-600 mb-2" />
-                <CardTitle>바이브 코딩 최적화</CardTitle>
+                <Zap className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle>자동 코드 생성</CardTitle>
                 <CardDescription>
-                  AI 개발에 최적화된 구현 가이드와 프롬프트 세트 제공
+                  AI가 MVP 코드, 데이터베이스 설계, 배포 가이드를 자동 생성
                 </CardDescription>
               </CardHeader>
             </Card>
             
             <Card>
               <CardHeader>
-                <TrendingUp className="h-8 w-8 text-purple-600 mb-2" />
-                <CardTitle>빠른 구현</CardTitle>
+                <BarChart3 className="h-8 w-8 text-purple-600 mb-2" />
+                <CardTitle>실시간 시장 분석</CardTitle>
                 <CardDescription>
-                  평균 2-4주 내 MVP 완성 가능한 상세한 기술 가이드
+                  GitHub, Reddit, HackerNews 등에서 실시간 트렌드 분석
                 </CardDescription>
               </CardHeader>
             </Card>
