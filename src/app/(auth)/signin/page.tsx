@@ -25,15 +25,19 @@ function SignInForm() {
     setLoading(true)
 
     try {
+      console.log('Attempting login with:', email)
       const { error } = await signIn(email, password)
       
       if (error) {
-        toast.error(error.message)
+        console.error('Login error:', error)
+        toast.error(`로그인 실패: ${error.message}`)
       } else {
+        console.log('Login successful')
         toast.success('로그인되었습니다!')
         router.push(redirectedFrom)
       }
-    } catch {
+    } catch (err) {
+      console.error('Login exception:', err)
       toast.error('로그인 중 오류가 발생했습니다.')
     } finally {
       setLoading(false)
@@ -141,6 +145,19 @@ function SignInForm() {
             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? '로그인 중...' : '로그인'}
+          </button>
+        </div>
+
+        <div className="mt-4">
+          <button
+            type="button"
+            onClick={() => {
+              setEmail('test@example.com')
+              setPassword('testpass123')
+            }}
+            className="w-full flex justify-center py-2 px-4 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200"
+          >
+            테스트 계정으로 자동 입력
           </button>
         </div>
 
