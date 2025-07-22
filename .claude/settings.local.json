@@ -58,7 +58,9 @@
       "Bash(git commit:*)",
       "Bash(git config:*)",
       "Bash(git push:*)",
-      "Bash(timeout 60 npm run build)"
+      "Bash(timeout 60 npm run build)",
+      "Bash(claude mcp)",
+      "Bash(start todo.html)"
     ],
     "deny": []
   }
